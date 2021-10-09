@@ -128,7 +128,19 @@ function comparaDoisNumeros(num1, num2) {
 
 // EXERCÍCIO 10
 function segundoMaiorEMenor(array) {
-  
+  let novoArray = []
+
+  for(let item of array){
+    let contador = 0
+    for(itemComparado of array){
+      if(item > itemComparado){
+        contador++
+      }
+    }
+    novoArray[contador] = item
+  }
+  console.log([novoArray[novoArray.length-2], (novoArray[1])])
+  return [novoArray[novoArray.length-2], (novoArray[1])]
 }
 
 // EXERCÍCIO 11
@@ -172,40 +184,80 @@ function imprimeChamada() {
 
 // EXERCÍCIO 14
 function criaRetangulo(lado1, lado2) {
-
+  const retangulo = {
+    largura: lado1,
+    altura: lado2,
+    perimetro: (lado1 + lado2) * 2,
+    area: lado1 * lado2
+  }
+  console.log(retangulo)
+  return retangulo
 }
 
 // EXERCÍCIO 15
 function anonimizaPessoa(pessoa) {
-
-  
+  const pessoaAnonima = {
+    nome: "ANÔNIMO",
+    idade: pessoa.idade,
+    email: pessoa.email,
+    endereco: pessoa.endereco
+  }
+  console.log(pessoaAnonima)
+  return pessoaAnonima
 }
 
 // EXERCÍCIO 16A
 function maioresDe18(arrayDePessoas) {
-
+  const pessoasAdultas = arrayDePessoas.filter( (pessoa) => {
+    return pessoa.idade >= 18
+  })
+  console.log(pessoasAdultas)
+  return pessoasAdultas
 }
 
 // EXERCÍCIO 16B
 function menoresDe18(arrayDePessoas) {
+  const pessoasMenoresDeIdade = arrayDePessoas.filter( (pessoa) => {
+    return pessoa.idade < 18
+  })
+  console.log(pessoasMenoresDeIdade)
+  return pessoasMenoresDeIdade
 
 }
 
 // EXERCÍCIO 17A
 function multiplicaArrayPor2(array) {
-
+  const arrayMultiplicado = array.map( (numero) => {
+    return numero * 2
+  })
+  console.log(arrayMultiplicado)
+  return arrayMultiplicado
 }
 
 // EXERCÍCIO 17B
 function multiplicaArrayPor2S(array) {
+  const arrayMultiplicado = array.map( (numero) => {
+    return `${numero * 2}`
+  })
+  console.log(arrayMultiplicado)
+  return arrayMultiplicado
 
 }
 
 // EXERCÍCIO 17C
 function verificaParidade(array) {
-
+  let arrayStrings = [];
+  for(let i = 0; i < array.length; i++){
+    if(array[i] % 2 === 0){
+      arrayStrings.push(`${array[i]} é par`);
+    } else {
+      arrayStrings.push(`${array[i]} é ímpar`);
+    }
+  }
+  console.log(arrayStrings)
+  return arrayStrings
 }
-
+  
 // EXERCÍCIO 18A
 function retornaPessoasAutorizadas(pessoas) {
 
