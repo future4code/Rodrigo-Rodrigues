@@ -102,7 +102,11 @@ div:last-child {
     text-align: center;
 }
 
+tr{
+    text-align: center;
+}
 table {
+    text-align: center;
     width: 60%;
 }
 
@@ -114,11 +118,18 @@ td button {
     color: black;
 }
 
+td{
+    text-align: center;
+}
+
 .container-do-search {
     margin-top: 20px;
     height: 100px;
 }
 
+#div-tabela{
+    text-align: center;
+}
 
 #back-button {
     background-color: white;
