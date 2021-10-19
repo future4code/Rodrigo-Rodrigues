@@ -119,6 +119,10 @@ td button {
     color: black;
 }
 
+td button:hover{
+    background-color: #ac942a;
+}
+
 td{
     text-align: center;
 }
@@ -145,6 +149,10 @@ td img{
     color: black;
 }
 
+#back-button:active{
+    color: white;
+}
+
 #back-button:hover {
-    background-color: #635a3d
+    background-color: #dbcd9d
 }
