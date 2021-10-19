@@ -103,6 +103,13 @@ div:last-child {
     text-align: center;
 }
 
+input{
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom-width: 4px;
+}
+
 tr{
     text-align: center;
 }
