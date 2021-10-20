@@ -44,10 +44,7 @@ div img {
     border-radius: 5px;
     font-size: 20px;
     color: white;
-    position: relative;
-    top: 50px;
-    right: 400px;
-
+    
 }
 
 .botao-amarelo:hover {
@@ -55,13 +52,17 @@ div img {
 }
 
 .container {
-    height: 500px;
+    height: 400px;
     text-align: center;
 }
 
 .icone {
     height: 20px;
     width: 35px;
+}
+
+.icone:hover{
+    opacity: 0.4;
 }
 
 
@@ -74,15 +75,19 @@ div img {
 #container-de-descricao {
     background-color: #2274a5;
     color: white;
-    padding-top: 80px;
+    padding-top: 120px;
 }
 
 #container-de-descricao>ol {
     padding: 15px 0px;
+    width: 200px;
+    margin: auto;
 }
 
 #container-para-comprar {
     background-color: #e7eb90;
+    padding-top: 100px;
+    text-align: center;
 }
 
 #container-para-comprar>p {
@@ -91,6 +96,9 @@ div img {
     font-size: 60px;
 }
 
+#botao-amarelo-home{
+    margin-top: 80px;
+}
 
 /**
   *
@@ -116,6 +124,8 @@ tr{
 table {
     text-align: center;
     width: 60%;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 td button {
@@ -142,8 +152,17 @@ td img{
     height: 100px;
 }
 
+.container-do-search button:active{
+    background-color: rgba(0, 0, 0, 1);
+}
+
 #div-tabela{
     text-align: center;
+}
+
+#div-back-button{
+    text-align: center;
+    margin-top: 120px;
 }
 
 #back-button {
