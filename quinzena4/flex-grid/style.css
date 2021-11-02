@@ -1,0 +1,86 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.page-grid-container{
+    display: grid;
+    height: 100vh;
+    grid-template-rows: 70px 1fr 70px;
+
+
+
+}
+
+header{
+    background-color: mediumvioletred;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 0 20px;
+    align-items: center;
+}
+
+button{
+    justify-self: end;
+    width: 55px;
+}
+
+.icone-bolinho{
+    width: 24px;
+}
+
+main{
+    display: grid;
+    grid-template-columns: 280px 1fr;
+
+}
+
+nav{
+    background-color: #f2d0e0;
+    display: grid;
+    grid-template-columns: 4fr 25fr 1fr;
+    grid-template-rows: 40px 40px 40px 1fr;
+    padding-top: 30px;
+    padding-left: 15px;
+    padding-right: 10px;
+}    
+
+
+
+.icone{
+    width: 15px;
+}
+
+.icone-setinha{
+    height: 15px;
+}
+
+.img-bolo{
+    width: 100%;
+}
+
+.div-grid-bolos-chocolate{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    padding: 15px;
+    gap: 20px;
+}
+
+.card-bolos{
+    text-align: center;
+    box-shadow: darkgray;
+    border-style: outset;
+}
+
+footer{
+    display: grid;
+    background-color: mediumvioletred;
+    align-items: center;
+    text-align: center;
+}
+
+.paragrafo-footer{
+    font-size: 18px;
+    font-weight: bold;
+}
