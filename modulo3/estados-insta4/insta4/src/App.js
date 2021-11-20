@@ -10,28 +10,112 @@ const MainContainer = styled.div`
 `
 
 class App extends React.Component {
+
+  state = {
+
+    posts:[
+      {
+        nomeUsuarioPost: "Paulinha",
+        fotoUsuarioPost: "https://picsum.photos/12/15",
+        fotoPost: "https://picsum.photos/200/150"
+      },
+
+      {
+        nomeUsuarioPost: "Carol",
+        fotoUsuarioPost: "https://picsum.photos/50/51",
+        fotoPost: "https://picsum.photos/200/151"
+      },
+
+      {
+        nomeUsuarioPost: "Laura",
+        fotoUsuarioPost: "https://picsum.photos/50/52",
+        fotoPost: "https://picsum.photos/200/152"
+      }
+        
+    ],
+    valorInputUsuario: "",
+    valorInputFotoUsuario: "",
+    valorInputFotoPost: ""
+    
+  }
+  
+  adicionarPost = (event) => {
+    event.preventDefault()
+    const novoPost = {
+      nomeUsuarioPost: this.state.valorInputUsuario,
+      fotoUsuarioPost: this.state.valorInputFotoUsuario,
+      fotoPost: this.state.valorInputFotoPost
+    };
+
+    const novoPostCopia = [...this.state.posts, novoPost];
+
+    this.setState({posts: novoPostCopia});
+    this.setState({
+      valorInputUsuario: "",
+      valorInputFotoUsuario: "",
+      valorInputFotoPost: ""
+    });
+
+  }
+  onChangeUsuario = (event) => {
+
+    this.setState({valorInputUsuario: event.target.value});
+
+  }
+
+  onChangeFotoUsuario = (event) => {
+
+    this.setState({valorInputFotoUsuario: event.target.value});
+
+  }
+
+  onChangeFotoPost = (event) => {
+
+    this.setState({valorInputFotoPost: event.target.value});
+
+  }
+  
+
+
   render() {
+    
+    const arrayComponentesPost = this.state.posts.map((post) => {
+      return <Post 
+      nomeUsuario={post.nomeUsuarioPost} 
+      fotoUsuario={post.fotoUsuarioPost} 
+      fotoPost={post.fotoPost} 
+      />
+      
+    })
+
     return (
       <MainContainer>
-        <Post
-          nomeUsuario={'Paulinha'}
-          fotoUsuario={'https://picsum.photos/50/50'}
-          fotoPost={'https://picsum.photos/200/150'}
-        />
+        <form>
+          <input
+            value={this.state.valorInputUsuario}
+            onChange={this.onChangeUsuario}
+            placeholder={"Nome"}
+          />
 
-        <Post
-          nomeUsuario={'Carol'}
-          fotoUsuario={'https://picsum.photos/50/51'}
-          fotoPost={'https://picsum.photos/200/151'}
-        />
+          <input
+            value={this.state.valorInputFotoUsuario}
+            onChange={this.onChangeFotoUsuario}
+            placeholder={"Foto perfil"}
+          />
 
-        <Post
-          nomeUsuario={'Laura'}
-          fotoUsuario={'https://picsum.photos/50/53'}
-          fotoPost={'https://picsum.photos/200/152'}
-        />
+          <input
+            value={this.state.valorInputFotoPost}
+            onChange={this.onChangeFotoPost}
+            placeholder={"Foto do post"}
+          />
+
+          <button onClick={this.adicionarPost}>Enviar</button>
+
+        </form>
+
+        {arrayComponentesPost}
       </MainContainer>
-
+      
     );
   }
 }
