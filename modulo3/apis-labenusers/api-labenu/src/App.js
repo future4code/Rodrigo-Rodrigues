@@ -8,10 +8,18 @@ export default class App extends React.Component {
     inputEmail: ''
   }
   componentDidMount() {
-  this.pegaUsuario ()
+  this.getUsuario ()
   }
 
-  pegaUsuario = () => {
+  mudaNome = (e) => {
+    this.setState({inputNome: e.target.value });
+  };
+
+  mudaEmail = (e) => {
+    this.setState({inputEmail: e.target.value });
+  };
+
+  getUsuario = () => {
   axios.get('https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users',
   { 
     headers:{
@@ -26,44 +34,58 @@ export default class App extends React.Component {
   .catch((err) => {
     console.log(err.response.data)
   })
-}
+  }
+ 
+  postUsuario = () => {
+    const URL =
+      "https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users";
 
-mudaNome = (e) => {
-  this.setState({inputNome: e.target.value });
-};
-
-mudaEmail = (e) => {
-  this.setState({inputEmail: e.target.value });
-};
-
-criarUsuario = () => {
-  const URL =
-    "https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users";
-
-  const body = {
+    const body = {
 
       name: this.state.inputNome,
       email: this.state.inputEmail
-  };
-  const headers = {
-    headers: {Authorization: "rodrigo-rodrigues-joy"}
+    };
+    const headers = {
+      headers: {Authorization: "rodrigo-rodrigues-joy"}
+    }
+
+    axios
+    .post(URL, body, headers)
+    .then((res) => {
+      this.getUsuario();
+    })
+    .catch((err) => {
+      console.log(err.response.data);
+    });
+
   }
 
-  axios
-  .post(URL, body, headers)
-  .then((res) => {
-    console.log('')
-    this.pegaUsuario();
-  })
-  .catch((err) => {
-    console.log(err.response.data);
-  });
-
-}
+  deleteUsuario = (id) => {
+    
+    axios.delete(
+      `https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/${id}`,
+      {
+        headers:{
+          Authorization: "rodrigo-rodrigues-joy"
+        }
+      }
+    )
+    .then(() => {
+      alert("Usuário apagado com sucesso!");
+      this.getUsuario();
+    })
+    .catch((err) => {
+      console.log(err.response.data)
+    })
+  }
 
   render () {
     const lista = this.state.labenusers.map((user)=>{
-      return <p key={user.id}>{user.name}</p>
+      return (
+        <li>
+          <span key={user.id}>{user.name}</span> <button onClick={() => this.deleteUsuario(user.id)}>X</button>
+        </li>
+      )
     })
     return (
       <div>
@@ -83,7 +105,7 @@ criarUsuario = () => {
         onChange = {this.mudaEmail}
         />
         
-       <button onClick={this.criarUsuario}>Enviar</button>
+       <button onClick={this.postUsuario}>Enviar</button>
        <button>Trocar de Tela</button>
        {lista}
 
