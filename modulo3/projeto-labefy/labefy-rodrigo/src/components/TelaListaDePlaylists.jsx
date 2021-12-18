@@ -19,7 +19,6 @@ const ShowTracksButton = styled.button`
         color: #F5F5F5;
         background-color: #1ed760;
     }
-
 `
 const DeleteButton = styled.button`
     font-weight: bold;
@@ -33,7 +32,6 @@ const DeleteButton = styled.button`
         color: #F5F5F5;
         background-color: #FF0000;
     }
-
 `
 
 class TelaListaDePlaylists extends React.Component {
@@ -49,7 +47,7 @@ class TelaListaDePlaylists extends React.Component {
     }
 
     getPlaylists = () =>{
-        
+
         let URL= "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists"
         let authorization = {
             headers: {
@@ -89,24 +87,24 @@ class TelaListaDePlaylists extends React.Component {
 
         let playListsMap = this.state.playlists.map((playlist)=>{
             return(
-                
+
                 <PlaylistItem>
                     <strong> Nome:</strong> {playlist.name} 
                     <ShowTracksButton>Mostrar tracks da playlist</ShowTracksButton>
                     <DeleteButton onClick={() => this.deletePlay(playlist.id)}>Apagar Playlist</DeleteButton>
                 </PlaylistItem>
-                
+
             )
         })
 
         return(
             <div key={playListsMap.id}>
                 <h2>Quantidade de playlists: {playListsMap.length}</h2>
-                
+
                 <p> {playListsMap} </p>
             </div>
         )
     }
 
 }
-export default  TelaListaDePlaylists
+export default  TelaListaDePlaylists 

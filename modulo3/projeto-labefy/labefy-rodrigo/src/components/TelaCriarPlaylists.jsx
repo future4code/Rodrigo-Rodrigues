@@ -14,7 +14,6 @@ const CreateButton = styled.button`
     color: #F5F5F5;
     background-color: #1ed760;
   }
-
 `
 
 class TelaCriarPlaylists extends React.Component {
@@ -49,7 +48,7 @@ class TelaCriarPlaylists extends React.Component {
     })
   }
 
-  
+
   render(){
   return (
 
@@ -64,4 +63,4 @@ class TelaCriarPlaylists extends React.Component {
   )}
 }
 
-export default TelaCriarPlaylists
+export default TelaCriarPlaylists 

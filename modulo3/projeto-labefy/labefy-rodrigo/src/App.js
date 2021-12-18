@@ -4,6 +4,15 @@ import TelaCriarPlaylists from './components/TelaCriarPlaylists';
 import TelaListaDePlaylists from './components/TelaListaDePlaylists';
 import AddTrackToPlaylist from './components/AddTrackToPlaylist';
 
+const Container = styled.div`
+  height: 100vh;
+  background-color: rgba(222,222,222);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+`
+
 const ShowButton = styled.button`
   font-weight: bold;
   background-color: #BDECA6;
@@ -16,7 +25,6 @@ const ShowButton = styled.button`
     color: #F5F5F5;
     background-color: #1ed760;
   }
-
 `
 class App extends React.Component {
   state  = {
@@ -26,7 +34,7 @@ class App extends React.Component {
     changeConditionalOFList =  () => {
       this.state.showPlaylists ? this.setState({showPlaylists: false}) : this.setState({showPlaylists: true})
       }
-           
+
 
   render(){
 
@@ -38,15 +46,15 @@ class App extends React.Component {
     }
 
     return (
-      <div>
+      <Container>
         <TelaCriarPlaylists />
-        <br/><hr />
-        <br/><ShowButton onClick={this.changeConditionalOFList}>Mostrar/Esconder Playlists</ShowButton>
+        <br/><hr /><br/>
+        <ShowButton onClick={this.changeConditionalOFList}>Mostrar/Esconder Playlists</ShowButton>
         {showList}
-      </div>
+      </Container>
 
   );
   }
 }
 
-export default App;
+export default App; 

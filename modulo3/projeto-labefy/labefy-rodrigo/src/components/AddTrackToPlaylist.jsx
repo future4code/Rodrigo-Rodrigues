@@ -28,7 +28,7 @@ export default class AddTrackToPlaylist extends React.Component{
 
     addTrack = (id) => {
         let URL = `https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/${id}/tracks`
-    
+
         let body = {
             name: this.state.inputTrack,
             artist: this.state.inputArtist,
@@ -40,7 +40,7 @@ export default class AddTrackToPlaylist extends React.Component{
             Authorization: "rodrigo-rodrigues-joy"
           }
         }
-    
+
         axios.post(URL, body, authorization)
         .then((response) => {
           this.setState({inputTrack:"", inputArtist:'', inputUrl:''})
@@ -50,12 +50,12 @@ export default class AddTrackToPlaylist extends React.Component{
       }
 
     render() {
-    
+
         return (
 
             <div>
                 <h3>Adiciona Musica</h3>
-            
+
                 <input 
                 placeholder="Nome da música" 
                 value={this.state.inputTrack} 
@@ -72,7 +72,7 @@ export default class AddTrackToPlaylist extends React.Component{
                 onChange={this.changeInputUrl} />
 
                 <button onClick={this.addTrack}>Adicionar</button>
-            
+
             </div>
         )
     }
