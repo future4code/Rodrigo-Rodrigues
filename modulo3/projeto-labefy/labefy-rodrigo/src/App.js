@@ -15,7 +15,7 @@ const Container = styled.div`
 
 const ShowButton = styled.button`
   font-weight: bold;
-  background-color: #BDECA6;
+  background-color: #BDECA5;
   margin-left: 10px;
   height: 4vh;
   width: 14vw;
