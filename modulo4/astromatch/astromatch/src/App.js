@@ -1,7 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import Match from './components/Match';
-import Header from './components/Header';
+import { createGlobalStyle } from 'styled-components';
+
+const GlobalStyle = createGlobalStyle`
+  margin: 0;
+  padding: 0;
+`
 
 const MainContainer = styled.div`
   display: flex;
@@ -14,10 +19,9 @@ const MainContainer = styled.div`
 
 function App() {
 
-  const [page, setPage] = useState()
   return (
     <MainContainer>
-    <Match />
+      <Match />
     </MainContainer>
     
   );
